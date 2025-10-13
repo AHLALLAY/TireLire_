@@ -63,4 +63,4 @@ const userSchema = new mongoose.Schema({
     toObject: { virtuals: true },
 });
 
-module.exports = mongoose.Model('User', userSchema);
+module.exports = mongoose.model('User', userSchema);
