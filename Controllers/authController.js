@@ -1,6 +1,6 @@
 const { validationResult } = require('express-validator');
 const User = require('../Models/User');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 class AuthController {
@@ -66,13 +66,13 @@ class AuthController {
             }
 
             const token = jwt.sign(
-                { expiresIn: '1h', },
-                process.env.JWT_SECRET,
                 {
                     userId: user._id,
                     email: user.email,
                     role: user.role,
                 },
+                process.env.JWT_SECRET,
+                { expiresIn: '1h', }
             );
             return res.status(200).json({
                 message: '[message] Login successful',
