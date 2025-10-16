@@ -12,7 +12,7 @@ const port = process.env.PORT;
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-a
+
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
 
