@@ -2,12 +2,19 @@ const express = require('express');
 const bcrypt = require('bcryptjs');
 const dbConnection = require('./Databases/Connection');
 const user = require('./Models/User')
+const authRoute = require('./Routes/authRoutes');
+const userRoute = require('./Routes/userRoutes');
 require('dotenv').config();
 
 
 const app = express();
 const port = process.env.PORT;
 
+app.use(express.json());
+app.use(express.urlencoded({extended: true}));
+a
+app.use('/api/auth', authRoute);
+app.use('/api/users', userRoute);
 
 const InitAdmin = async () => {
     try {
