@@ -6,4 +6,4 @@ routes.post('/register', authController.register);
 routes.post('/login', authController.login);
 
 
-module.exports = Router;
+module.exports = routes;
