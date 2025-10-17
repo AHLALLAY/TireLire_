@@ -4,6 +4,7 @@ const dbConnection = require('./Databases/Connection');
 const user = require('./Models/User')
 const authRoute = require('./Routes/authRoutes');
 const userRoute = require('./Routes/userRoutes');
+const adminRoute = require('./Routes/adminRoutes');
 require('dotenv').config();
 
 
@@ -15,6 +16,7 @@ app.use(express.urlencoded({extended: true}));
 
 app.use('/api/auth', authRoute);
 app.use('/api/users', userRoute);
+app.use('/api/admin', adminRoute);
 
 const InitAdmin = async () => {
     try {
@@ -42,12 +44,12 @@ const InitAdmin = async () => {
                 KYCStatus: 'approved',
             });
 
-            console.log('[Server] Default Admin Created');
+            console.log('[Server  ] Default Admin Created');
         } else {
-            console.log('[Server] Admin user already exists');
+            console.log('[Server  ] Admin user already exists');
         }
     } catch (error) {
-        console.log(`[server] Internal server error : ${error}`);
+        console.log(`[server  ] Internal server error : ${error}`);
     }
 }
 
@@ -61,10 +63,10 @@ const startServer = async () => {
 
         // lacement du serveur
         app.listen(port, () => {
-            console.log(`[Server] => http://localhost:${port}/`);
+            console.log(`[Server  ] http://localhost:${port}/`);
         });
     } catch (error) {
-        console.log(`[Server] => Server Error : ${error}`);
+        console.log(`[Server  ] Server Error : ${error}`);
     }
 
 }
