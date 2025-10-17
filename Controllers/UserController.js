@@ -22,7 +22,7 @@ class UserController {
         try {
             const user = await User.findById(req.params.id );
             if (!user) {
-                console.log('[displayUsersById] => user not found');
+                console.log('[displayUsersById] user not found');
                 return res.status(404).json({
                     success: false,
                     message: 'User Not Found'
