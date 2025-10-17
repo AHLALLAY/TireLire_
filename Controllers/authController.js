@@ -58,11 +58,13 @@ class AuthController {
             const user = await User.findOne({ email });
             if (!user) {
                 res.status(404).json({ message: '[Message] User not found' });
+                return;
             }
 
             const isMatch = await bcrypt.compare(password, user.password);
             if (!isMatch) {
                 res.status(401).json({ message: '[Message] Invalid credentials' });
+                return;
             }
 
             const token = jwt.sign(
