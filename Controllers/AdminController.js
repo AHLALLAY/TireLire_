@@ -7,17 +7,17 @@ class AdminController {
             const { id } = req.params;
             const { KYCStatus } = req.body;
 
-            const updatedUser = User.findByIdAndUpdate(
+            const updatedUser = await User.findByIdAndUpdate(
                 id,
                 { KYCStatus, updatedAt: new Date() },
                 { new: true }
             );
             if (!updatedUser) {
                 return res.status(404).json({
-                    message: `Internal server error : ${error}`
+                    message: 'User Not Found'
                 });
             }
-            res.status(200).json({
+            return res.status(200).json({
                 message: "KYC Status Updated",
                 user: {
                     id: updatedUser._id,
@@ -32,7 +32,7 @@ class AdminController {
         } catch (error) {
             console.log(`[KYCStatsUpdater] => errors : ${error}`);
             return res.status(500).json({
-                message: `Internal server error : ${error}`
+                message: 'Internal server error'
             });
         }
     }
