@@ -99,7 +99,7 @@ Travail individuel.
 Une durée de 25 min organisée comme suit :
 - **⏱️ 5 minutes** pour Démontrer le contenu et la fonctionnalité (très rapidement)
 - 💻 Montrez le code source et expliquez brièvement comment il fonctionne. (5 minutes)
-- **🎯 Mise en situation** (10minutes)
+- **🎯 Mise en situation** (10 minutes)
 - **🔍 Code Review \ Questions culture Web** (5 minutes)
 
 ## 📦 Livrables
